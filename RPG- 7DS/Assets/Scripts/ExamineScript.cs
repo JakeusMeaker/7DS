@@ -26,5 +26,5 @@ public class ExamineScript : MonoBehaviour {
     {
         transform.rotation = Quaternion.Euler(defaultpos);  
     }
-
+  
 }
