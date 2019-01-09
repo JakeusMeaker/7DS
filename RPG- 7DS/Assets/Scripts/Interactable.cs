@@ -11,6 +11,7 @@ public class Interactable : MonoBehaviour {
     public virtual void Interact()
     {
         Debug.Log("Interacting with " + transform.name);
+        pickupPrompt.enabled = false;
     }
 
     private void OnDrawGizmosSelected()
@@ -22,11 +23,18 @@ public class Interactable : MonoBehaviour {
     private void OnMouseOver()
     {
         pickupPrompt.enabled = true;
+
+        if (Input.GetButtonDown("Pickup"))
+        {
+            Interact();
+        }
     }
 
     private void OnMouseExit()
     {
         pickupPrompt.enabled = false;
     }
+
+
         
 }
