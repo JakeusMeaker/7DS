@@ -224,6 +224,11 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetActive
       objectReference: {fileID: 0}
+    - target: {fileID: 114064012149520260, guid: 6e860f6eebfb6524bba8ccc5c4842bd6,
+        type: 2}
+      propertyPath: examinationPoint
+      value: 
+      objectReference: {fileID: 724002830}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e860f6eebfb6524bba8ccc5c4842bd6, type: 2}
   m_IsPrefabAsset: 0
@@ -416,6 +421,11 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetActive
       objectReference: {fileID: 0}
+    - target: {fileID: 114064012149520260, guid: 6e860f6eebfb6524bba8ccc5c4842bd6,
+        type: 2}
+      propertyPath: examinationPoint
+      value: 
+      objectReference: {fileID: 724002830}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e860f6eebfb6524bba8ccc5c4842bd6, type: 2}
   m_IsPrefabAsset: 0
@@ -432,8 +442,8 @@ GameObject:
   - component: {fileID: 137089240}
   - component: {fileID: 137089239}
   m_Layer: 0
-  m_Name: Capsule
-  m_TagString: Untagged
+  m_Name: Player
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -516,6 +526,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1403693276}
+  - {fileID: 724002830}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1018,6 +1029,11 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetActive
       objectReference: {fileID: 0}
+    - target: {fileID: 114064012149520260, guid: 6e860f6eebfb6524bba8ccc5c4842bd6,
+        type: 2}
+      propertyPath: examinationPoint
+      value: 
+      objectReference: {fileID: 724002830}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e860f6eebfb6524bba8ccc5c4842bd6, type: 2}
   m_IsPrefabAsset: 0
@@ -1132,6 +1148,11 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetActive
       objectReference: {fileID: 0}
+    - target: {fileID: 114064012149520260, guid: 6e860f6eebfb6524bba8ccc5c4842bd6,
+        type: 2}
+      propertyPath: examinationPoint
+      value: 
+      objectReference: {fileID: 724002830}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e860f6eebfb6524bba8ccc5c4842bd6, type: 2}
   m_IsPrefabAsset: 0
@@ -1153,7 +1174,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 3
   pickupPrompt: {fileID: 452624243}
+  player: {fileID: 0}
+  withinRange: 0
   item: {fileID: 11400000, guid: 655b6122fc884084da3f90202507276d, type: 2}
+  examinationPoint: {fileID: 0}
 --- !u!114 &601203637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1167,6 +1191,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 3
   pickupPrompt: {fileID: 452624243}
+  player: {fileID: 0}
+  withinRange: 0
 --- !u!224 &642733585 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224950602096258954, guid: 6e860f6eebfb6524bba8ccc5c4842bd6,
@@ -1275,6 +1301,34 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 689493567}
   m_CullTransparentMesh: 0
+--- !u!1 &724002829
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 724002830}
+  m_Layer: 0
+  m_Name: ExaminationPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &724002830
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 724002829}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.16}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 137089243}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &740816679
 GameObject:
   m_ObjectHideFlags: 0
@@ -1433,6 +1487,11 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetActive
       objectReference: {fileID: 0}
+    - target: {fileID: 114064012149520260, guid: 6e860f6eebfb6524bba8ccc5c4842bd6,
+        type: 2}
+      propertyPath: examinationPoint
+      value: 
+      objectReference: {fileID: 724002830}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e860f6eebfb6524bba8ccc5c4842bd6, type: 2}
   m_IsPrefabAsset: 0
@@ -1547,6 +1606,11 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetActive
       objectReference: {fileID: 0}
+    - target: {fileID: 114064012149520260, guid: 6e860f6eebfb6524bba8ccc5c4842bd6,
+        type: 2}
+      propertyPath: examinationPoint
+      value: 
+      objectReference: {fileID: 724002830}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e860f6eebfb6524bba8ccc5c4842bd6, type: 2}
   m_IsPrefabAsset: 0
@@ -2013,6 +2077,11 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetActive
       objectReference: {fileID: 0}
+    - target: {fileID: 114064012149520260, guid: 6e860f6eebfb6524bba8ccc5c4842bd6,
+        type: 2}
+      propertyPath: examinationPoint
+      value: 
+      objectReference: {fileID: 724002830}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e860f6eebfb6524bba8ccc5c4842bd6, type: 2}
   m_IsPrefabAsset: 0
@@ -2060,7 +2129,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.3304143, y: 1}
-  m_AnchoredPosition: {x: 1.5, y: 0}
+  m_AnchoredPosition: {x: 1.5000305, y: 0}
   m_SizeDelta: {x: -30, y: -27.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1205273108
@@ -2234,7 +2303,7 @@ GameObject:
   - component: {fileID: 1403693277}
   m_Layer: 0
   m_Name: MainCamera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2430,6 +2499,11 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetActive
       objectReference: {fileID: 0}
+    - target: {fileID: 114064012149520260, guid: 6e860f6eebfb6524bba8ccc5c4842bd6,
+        type: 2}
+      propertyPath: examinationPoint
+      value: 
+      objectReference: {fileID: 724002830}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e860f6eebfb6524bba8ccc5c4842bd6, type: 2}
   m_IsPrefabAsset: 0
@@ -2677,6 +2751,11 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetActive
       objectReference: {fileID: 0}
+    - target: {fileID: 114064012149520260, guid: 6e860f6eebfb6524bba8ccc5c4842bd6,
+        type: 2}
+      propertyPath: examinationPoint
+      value: 
+      objectReference: {fileID: 724002830}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e860f6eebfb6524bba8ccc5c4842bd6, type: 2}
   m_IsPrefabAsset: 0
@@ -2787,6 +2866,11 @@ Prefab:
       propertyPath: examinableItem
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 114064012149520260, guid: 6e860f6eebfb6524bba8ccc5c4842bd6,
+        type: 2}
+      propertyPath: examinationPoint
+      value: 
+      objectReference: {fileID: 724002830}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e860f6eebfb6524bba8ccc5c4842bd6, type: 2}
   m_IsPrefabAsset: 0
@@ -2808,6 +2892,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 3
   pickupPrompt: {fileID: 452624243}
+  player: {fileID: 0}
+  withinRange: 0
 --- !u!114 &2129083737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2821,7 +2907,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 3
   pickupPrompt: {fileID: 452624243}
+  player: {fileID: 0}
+  withinRange: 0
   item: {fileID: 11400000, guid: 655b6122fc884084da3f90202507276d, type: 2}
+  examinationPoint: {fileID: 0}
 --- !u!1 &2140095220
 GameObject:
   m_ObjectHideFlags: 0
@@ -2932,3 +3021,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemsParent: {fileID: 689493568}
   inventoryUI: {fileID: 689493567}
+  cam: {fileID: 1403693279}

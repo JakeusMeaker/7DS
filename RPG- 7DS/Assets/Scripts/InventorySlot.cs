@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class InventorySlot : MonoBehaviour {
 
     public GameObject examinableItem;
+    public Transform examinationPoint;
 
     public Image icon;
 
@@ -38,7 +39,8 @@ public class InventorySlot : MonoBehaviour {
     {
         if (item != null)
         {
-            examinableItem.SetActive(!examinableItem.activeSelf);
+            Debug.Log("Examining " + name);
+            
         }
     }
 }
