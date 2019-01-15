@@ -11,5 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f53e753f04d94e344880ac1e56f2015d, type: 3}
   m_Name: BetterRedCube
   m_EditorClassIdentifier: 
+  index: 0
   name: Yeeting Red Cube
   icon: {fileID: 21300000, guid: 2b57d33a27229544c9b65c08711d0b1f, type: 3}
+  itemPrefab: {fileID: 1590642433165522, guid: 8e3b7b17ed7ee0e4fba45f6b8dc3ad4f, type: 2}
+  itemPrefabExam: {fileID: 0}
