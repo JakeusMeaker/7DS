@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\InventoryScripts\InventorySlot.cs" />
     <Compile Include="Assets\Scripts\InventoryScripts\InventoryUI.cs" />
     <Compile Include="Assets\Scripts\InventoryScripts\Item.cs" />
+    <Compile Include="Assets\Scripts\InventoryScripts\ItemData.cs" />
     <Compile Include="Assets\Scripts\InventoryScripts\ItemPickup.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/JM219785/Documents/7DS/RPG- 7DS/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>

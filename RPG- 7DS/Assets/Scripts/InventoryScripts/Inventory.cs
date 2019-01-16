@@ -26,12 +26,12 @@ public class Inventory : MonoBehaviour
     public GameObject[] itemPrefabs;
     public GameObject loadingScreen;
     public int space = 10;
-    public List<Item> items = new List<Item>();
+    public List<ItemData> items = new List<ItemData>();
 
     Item[] gameItems;
     GameObject[] objects;
 
-    static int selectedObjects = 0;
+    //static int selectedObjects = 0;
 
     private void Start()
     {
@@ -49,7 +49,7 @@ public class Inventory : MonoBehaviour
         {
             gameItems[i] = itemPrefabs[i].GetComponent<Item>();
             yield return wait;
-            objects[i] = Instantiate(gameItems[i].itemPrefab,
+            objects[i] = Instantiate(gameItems[i].itemData.itemPrefab,
                                              GameObject.FindGameObjectWithTag(gameItems[i].name).transform.position, Quaternion.identity);
             yield return wait;
             gameItems[i].index = i;
@@ -66,7 +66,7 @@ public class Inventory : MonoBehaviour
             Debug.Log("Not enough room.");
             return false;
         }
-        items.Add(item);
+        items.Add(itemData);
 
         if(onItemChangedCallback != null)
         onItemChangedCallback.Invoke();

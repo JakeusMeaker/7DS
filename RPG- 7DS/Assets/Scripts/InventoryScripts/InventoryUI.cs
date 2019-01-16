@@ -4,6 +4,7 @@ public class InventoryUI : MonoBehaviour {
 
     public Transform itemsParent;
     public GameObject inventoryUI;
+    public GameObject selectionUI;
     private bool cursorLock;
     public Camera cam;
     bool invntryOpen;
@@ -26,7 +27,7 @@ public class InventoryUI : MonoBehaviour {
 	public void Update () {
         if (Input.GetButtonDown("Inventory") && !invntryOpen)
         {
-            inventoryUI.SetActive(!inventoryUI.activeSelf);
+            inventoryUI.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             cam.GetComponent<CameraRotations>().enabled = false;
@@ -34,12 +35,13 @@ public class InventoryUI : MonoBehaviour {
 
         }else if(Input.GetButtonDown("Inventory") && invntryOpen)
         {
-            inventoryUI.SetActive(!inventoryUI.activeSelf);
+            selectionUI.SetActive(false);
+            inventoryUI.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             cam.GetComponent<CameraRotations>().enabled = true;
             invntryOpen = false;
-
+            
         }
                               
 	}

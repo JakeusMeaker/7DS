@@ -1,23 +1,21 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Item")]
-public class Item : ScriptableObject {
+public class Item : MonoBehaviour {
 
+    public ItemData itemData;
     public int index;
-    new public string name = "New Item";
-    public Sprite icon = null;
-    public GameObject itemPrefab;
-    public GameObject itemPrefabExam;
+    private GameObject previewObject;
+	
     
-    public virtual void Use()
-    {
-        //use the item
-        //something might happen
-
-        Debug.Log("Using " + name); 
-    }
-
-   
-
-    
+    // Use this for initialization
+	void Start () {
+		
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		
+	}
 }

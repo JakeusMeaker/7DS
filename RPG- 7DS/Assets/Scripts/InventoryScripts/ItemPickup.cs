@@ -6,7 +6,13 @@ public class ItemPickup : Interactable {
 
     public Item item;
     public GameObject itemObject;
-    public Transform examinationPoint;
+    public GameObject examinationPoint;
+    Inventory inventory;
+
+    private void Start()
+    {
+        inventory = Inventory.instance;
+    }
 
     public override void Interact()
     {
@@ -19,9 +25,13 @@ public class ItemPickup : Interactable {
     {
         Debug.Log("Picking up " + item.name);
         bool wasPickedUp = Inventory.instance.Add(item);
+       
 
-        if(wasPickedUp)
+        if (wasPickedUp)
+        {
             gameObject.SetActive(!gameObject.activeSelf);
+        }
+
     }
 
     public void Examine()

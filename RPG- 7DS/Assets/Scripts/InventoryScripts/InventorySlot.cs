@@ -2,10 +2,8 @@
 using UnityEngine.UI;
 
 public class InventorySlot : MonoBehaviour {
-
-    public GameObject examineItem;
-    public Transform examinationPoint;
-    public ItemPickup pickup;
+    
+    
     public Image icon;
 
 
@@ -18,7 +16,7 @@ public class InventorySlot : MonoBehaviour {
         
     }
 
-    public void AddItem (Item newItem)
+    public void AddItem (ItemData newItem)
     {
         item = newItem;
 
@@ -49,8 +47,12 @@ public class InventorySlot : MonoBehaviour {
         if (item != null)
         {
             Debug.Log("Examining " + name);
-            //examineItem = inv.
-            //examineItem.SetActive(true);
+            
+
+            if (item.name == inv.gameObject[].name)
+            {
+
+            }
             
         }
     }
