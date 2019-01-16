@@ -6,14 +6,15 @@ public class InventorySlot : MonoBehaviour {
     public GameObject examineItem;
     public Transform examinationPoint;
     public ItemPickup pickup;
-
     public Image icon;
 
+
+    private Inventory inv;
     Item item;
 
     private void Start()
     {
-        
+        inv = Inventory.instance;
         
     }
 
@@ -48,8 +49,8 @@ public class InventorySlot : MonoBehaviour {
         if (item != null)
         {
             Debug.Log("Examining " + name);
-            examineItem = GetComponent<ItemPickup>().itemObject;
-            examineItem.SetActive(true);
+            //examineItem = inv.
+            //examineItem.SetActive(true);
             
         }
     }
