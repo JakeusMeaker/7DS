@@ -111,3 +111,5 @@ MonoBehaviour:
   index: 0
   prefab: {fileID: 1752181174643848}
   name: Magic Cube of MAKE THIS WORK
+  icon: {fileID: 21300000, guid: 7989608c93b1e9c44ac15dfb242820d2, type: 3}
+  text: {fileID: 0}

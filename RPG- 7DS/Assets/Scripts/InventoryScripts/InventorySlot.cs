@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class InventorySlot : MonoBehaviour {
     
-    
+   
     public Image icon;
 
 
@@ -12,8 +12,7 @@ public class InventorySlot : MonoBehaviour {
 
     private void Start()
     {
-        inv = Inventory.instance;
-        
+        inv = Inventory.instance;        
     }
 
     public void AddItem (ItemData newItem)
@@ -23,7 +22,6 @@ public class InventorySlot : MonoBehaviour {
         icon.sprite = item.icon;
         icon.enabled = true;
         
-
     }
 
     public void ClearSlot()
@@ -47,13 +45,7 @@ public class InventorySlot : MonoBehaviour {
         if (item != null)
         {
             Debug.Log("Examining " + name);
-            
-
-            if (item.name == inv.gameObject[].name)
-            {
-
-            }
-            
+                              
         }
     }
 }

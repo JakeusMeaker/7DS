@@ -7,7 +7,7 @@ public class CameraRotations : MonoBehaviour
 
     public float sensitivity = 5.0f;
     public float smoothing = 2.0f;
-    public GameObject character;
+    private GameObject character;
     private Vector2 mouseLook;
     private Vector2 smoothV;
 
