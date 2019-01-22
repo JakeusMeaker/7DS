@@ -25,7 +25,6 @@ public class InventoryManager : MonoBehaviour
     public Transform previewPoint;
     public GameObject loadingScreen;
     public GameObject inventoryUI;
-    public GameObject selectionUI;
     public GameObject objectTextUI;
     public Camera cam;
     public Text text;
@@ -44,6 +43,7 @@ public class InventoryManager : MonoBehaviour
     {
         StartCoroutine(Setup());
         lastSelectedObject = -1;
+        
     }
 
     private void Update()
@@ -59,7 +59,6 @@ public class InventoryManager : MonoBehaviour
         }
         else if (Input.GetButtonDown("Inventory") && invntryOpen)
         {
-            selectionUI.SetActive(false);
             inventoryUI.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
@@ -92,6 +91,7 @@ public class InventoryManager : MonoBehaviour
         }
         yield return null;
         loadingScreen.SetActive(false);
+        invntryOpen = false;
     }
 
     public void Examine() //Examines currently selected item. Called from UI button. Reliant on SelectedItem() being called from Item, otherwise returns null
@@ -103,10 +103,26 @@ public class InventoryManager : MonoBehaviour
 
     }
 
+    public void Back()
+    {
+        previewObjects[lastSelectedObject].gameObject.SetActive(false);
+        inventoryUI.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        cam.GetComponent<CameraRotations>().enabled = true;
+        invntryOpen = false;
+    }
+
+    public void Drop()
+    {
+        
+    }
+
     public void SelectedItem(int index) //Sets item for examination. Called from Item script.
     {
         lastSelectedObject = index;
         Debug.Log(lastSelectedObject);
+        
     }
 
     public void ResetSelectedItem() //UNselects item for examination
