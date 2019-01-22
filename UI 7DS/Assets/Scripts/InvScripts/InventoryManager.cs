@@ -6,17 +6,33 @@ using UnityEngine.UI;
 public class InventoryManager : MonoBehaviour
 {
 
+    #region Singleton
+
+    public static InventoryManager instance;
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+            instance = this;
+    }
+
+    #endregion
+
     public GameObject[] itemPrefabs;
     public Transform previewPoint;
     public GameObject loadingScreen;
     public GameObject inventoryUI;
     public GameObject selectionUI;
-    public CameraRotations cam;
+    public GameObject objectTextUI;
+    public Camera cam;
     public Text text;
 
     private GameObject[] previewObjects;
     private bool invntryOpen;
-    
+
     Item[] items;
 
     GameObject[] objects;
@@ -27,7 +43,7 @@ public class InventoryManager : MonoBehaviour
     void Start()
     {
         StartCoroutine(Setup());
-        cam = GetComponent<CameraRotations>();
+        lastSelectedObject = -1;
     }
 
     private void Update()
@@ -37,7 +53,7 @@ public class InventoryManager : MonoBehaviour
             inventoryUI.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            cam.enabled = false;
+            cam.GetComponent<CameraRotations>().enabled = false;
             invntryOpen = true;
 
         }
@@ -47,7 +63,7 @@ public class InventoryManager : MonoBehaviour
             inventoryUI.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-            cam. enabled = true;
+            cam.GetComponent<CameraRotations>().enabled = true;
             invntryOpen = false;
 
         }
@@ -67,7 +83,6 @@ public class InventoryManager : MonoBehaviour
             items[i] = itemPrefabs[i].GetComponent<Item>();
             objects[i] = Instantiate(items[i].prefab,
                                 GameObject.FindGameObjectWithTag(items[i].name).transform.position, Quaternion.identity);
-            objects[i].AddComponent<Text>();
             previewObjects[i] = Instantiate(items[i].prefab, previewPoint);
             previewObjects[i].GetComponent<Item>().enabled = false;
             previewObjects[i].AddComponent<ExamineScript>();
@@ -79,11 +94,24 @@ public class InventoryManager : MonoBehaviour
         loadingScreen.SetActive(false);
     }
 
-    public static void Examine(int index)
+    public void Examine() //Examines currently selected item. Called from UI button. Reliant on SelectedItem() being called from Item, otherwise returns null
+    {
+        if (lastSelectedObject == -1)
+            return;
+
+        previewObjects[lastSelectedObject].gameObject.SetActive(true); //TURNS IT ON. You might want to turn it off somehow. I suggest SetActive(false);
+
+    }
+
+    public void SelectedItem(int index) //Sets item for examination. Called from Item script.
     {
         lastSelectedObject = index;
-        //lastSelectedObject;
+        Debug.Log(lastSelectedObject);
+    }
 
+    public void ResetSelectedItem() //UNselects item for examination
+    {
+        lastSelectedObject = -1;
     }
 
 }

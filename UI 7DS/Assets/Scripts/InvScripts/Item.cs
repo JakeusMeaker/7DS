@@ -10,27 +10,42 @@ public class Item : MonoBehaviour {
     new public string name;
     public Sprite icon;
     public Text text;
-    
+
+    public string itemText;
+
+    InventoryManager inventoryManager;
 
     // Use this for initialization
     void Start () {
-        text = GetComponent<Text>();
+        inventoryManager = InventoryManager.instance;
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    private void OnEnable()
+    {
+        text = GameObject.FindGameObjectWithTag("UIText").GetComponent<Text>();
+    }
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 
-    public void Use()
+    public void OnMouseUpAsButton() //Selects this item as current selectable
     {
-
+        inventoryManager.SelectedItem(index); //Call this when clicking an item in your inventory. This sets it as the item to examine.
+        //Findsomewhere to call inventoryManager.ResetSelectedItem() otherwise your last item will be permanently selected until overridden;
     }
 
 
     private void OnMouseOver()
     {
         text.enabled = true;
-        text.text = "[E] " + name;
+        text.text = itemText;
+    }
+
+    private void OnMouseExit()
+    {
+        text.enabled = false;
+        text.text = null;
     }
 }

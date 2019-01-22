@@ -9,11 +9,11 @@ public class FPCharacterMovement : MonoBehaviour
     private float translation;
     private float straffe;
     private bool isPaused;
-    private CameraRotations cam;
+    private CameraRotations cameraRotations;
 
     void Start()
     {
-        cam = GetComponent<CameraRotations>();
+        cameraRotations = GetComponentInChildren<Camera>().GetComponent<CameraRotations>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         isPaused = false;
@@ -25,21 +25,29 @@ public class FPCharacterMovement : MonoBehaviour
         straffe = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
         transform.Translate(straffe, 0, translation);
 
-        if (Input.GetKeyDown("escape") && !isPaused)
-        {
-            cam.enabled = false;
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-            Time.timeScale = 0;
+        if (Input.GetKeyDown(KeyCode.Escape))
+            {
+            if (!isPaused)
+            {
+                isPaused = true;
+                cameraRotations.enabled = false;
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                Time.timeScale = 0;
+
+            }
+
+            else if (isPaused)
+            {
+                isPaused = false;
+                cameraRotations.enabled = true;
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+                Time.timeScale = 1;
+
+            }
         }
 
-        if (Input.GetKeyDown("escape") && isPaused)
-        {
-            cam.enabled = true;
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-            Time.timeScale = 1;
-        }
 
     }
 }
