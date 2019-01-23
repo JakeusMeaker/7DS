@@ -22,9 +22,9 @@ public class ExamineScript : MonoBehaviour {
         transform.Rotate(Vector3.right, rotY, Space.World);
     }
 
-    private void OnMouseUp() //resets the item back to its origional position
+    /*private void OnMouseUp() //resets the item back to its origional position
     {
         transform.rotation = Quaternion.Euler(defaultpos);  
-    }
+    }*/
   
 }

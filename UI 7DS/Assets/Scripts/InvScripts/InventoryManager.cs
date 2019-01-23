@@ -64,7 +64,7 @@ public class InventoryManager : MonoBehaviour
             Cursor.visible = false;
             cam.GetComponent<CameraRotations>().enabled = true;
             invntryOpen = false;
-
+               
         }
     }
 
@@ -94,6 +94,16 @@ public class InventoryManager : MonoBehaviour
         invntryOpen = false;
     }
 
+    public void Use()
+    {
+        if (lastSelectedObject == -1)
+            return;
+                  
+            //GluttonyScript();
+        ResetSelectedItem();
+    }
+
+
     public void Examine() //Examines currently selected item. Called from UI button. Reliant on SelectedItem() being called from Item, otherwise returns null
     {
         if (lastSelectedObject == -1)
@@ -113,10 +123,7 @@ public class InventoryManager : MonoBehaviour
         invntryOpen = false;
     }
 
-    public void Drop()
-    {
-        
-    }
+   
 
     public void SelectedItem(int index) //Sets item for examination. Called from Item script.
     {
